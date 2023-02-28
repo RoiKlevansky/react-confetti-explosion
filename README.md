@@ -46,7 +46,7 @@ function App() {
 | force         | `number`   | 0.5                                                           | Between 0-1, roughly the vertical force at which particles initially explode. Straying too far away from 0.5 may start looking...interesting. |
 | height        | `number` `string`   | '150vh'                                                           | Pixel distance the particles will vertically spread from initial explosion point.                                                             |
 | width         | `number`   | 1000                                                          | Pixel distance the particles will horizontally spread from initial explosion point.                                                           |  |
-
+| zIndex        | `number`   | 1                                                          | Z-index of the explosion container.                                                                                                            |
 
 Although the above properties of the explosion is controlled, mounting/unmounting is entirely left to the consumer.
 
