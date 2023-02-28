@@ -27,6 +27,7 @@ interface IParticlesProps {
   force: number;
   height: number | string;
   width: number;
+  zIndex: number;
 }
 
 const rotationKeyframes = rotationTransforms.reduce((acc, xyz, i) => {
@@ -107,7 +108,7 @@ const confettoStyle = (particle: IParticle, duration: number, force: number, siz
   };
 };
 
-const useStyles = ({ particles, duration, height, width, force, particleSize }: IParticlesProps) => {
+const useStyles = ({ particles, duration, height, width, force, particleSize, zIndex }: IParticlesProps) => {
   const confettiStyles = particles.reduce(
     (acc, particle, i) => ({
       ...acc,
@@ -127,6 +128,7 @@ const useStyles = ({ particles, duration, height, width, force, particleSize }: 
         width: 0,
         height: 0,
         position: 'relative',
+        zIndex,
       },
       screen: {
         position: 'fixed',
@@ -134,6 +136,7 @@ const useStyles = ({ particles, duration, height, width, force, particleSize }: 
         left: 0,
         right: 0,
         bottom: 0,
+        zIndex,
         overflow: 'hidden',
         pointerEvents: 'none',
       },

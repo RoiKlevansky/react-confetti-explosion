@@ -10,6 +10,7 @@ const WIDTH = 1000; // horizontal spread of particles in pixels
 const PARTICLE_COUNT = 100;
 const DURATION = 2200;
 const COLORS = ['#FFC700', '#FF0000', '#2E3191', '#41BBC7'];
+const Z_INDEX = 1;
 
 export interface ConfettiProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'ref'> {
   particleCount?: number;
@@ -19,6 +20,7 @@ export interface ConfettiProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   force?: number;
   height?: number | string;
   width?: number;
+  zIndex?: number;
 }
 
 const createParticles = (count: number, colors: string[]): IParticle[] => {
@@ -37,6 +39,7 @@ function ConfettiExplosion({
   force = FORCE,
   height = HEIGHT,
   width = WIDTH,
+  zIndex = Z_INDEX,
   ...props
 }: ConfettiProps) {
   const [origin, setOrigin] = React.useState<{ top: number; left: number }>();
@@ -48,6 +51,7 @@ function ConfettiExplosion({
     force,
     width,
     height,
+    zIndex,
   })();
 
   const originRef = React.useCallback((node: HTMLDivElement) => {
